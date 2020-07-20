@@ -1,0 +1,26 @@
+@import "./utils";
+
+$font-styles: bold italic lighter;
+$font-sizes: 2.5 2 1.8 1.5 1.2 1 .8;
+$text-aligns: left center right;
+
+@include to-style(null, font-style, null, $font-styles);
+@include to-style(hover\:, font-style, null, $font-styles, ":hover");
+@include to-style(t-, text-align, null, $text-aligns);
+
+@for $i from 1 to 7 {
+    .h#{$i} {
+        font-size: nth($font-sizes, $i) + em;
+    }
+    .h#{$i}\:hover:hover {
+        font-size: nth($font-sizes, $i) + em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    @for $i from 1 to 7 {
+        .mb\:h#{$i} {
+            font-size: nth($font-sizes, $i) + em;
+        }
+    }
+}

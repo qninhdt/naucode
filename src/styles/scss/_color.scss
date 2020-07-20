@@ -1,0 +1,18 @@
+@import "./utils";
+
+$colors: c-text ;
+$bg-colors: c-line c-bg c-button;
+
+@include to-style-with-var(null, color, null, $colors);
+@include to-style-with-var(hover\:, color, null, $colors, ":hover");
+
+@include to-style-with-var(null, background-color, null, $bg-colors);
+@include to-style-with-var(hover\:, background-color, null, $bg-colors, ":hover");
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}

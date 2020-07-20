@@ -1,0 +1,10 @@
+@import "./utils";
+
+$displays: block none flex inline inline-block;
+$overflows: hidden auto;
+
+@include to-style(of-, overflow, null, $overflows);
+@include to-style-in-all(null, display, null, $displays);
+
+@include to-style-by-steps(op-, opacity, null, null, 0, 1, 0.2);
+@include to-style-by-steps(hover\:op-, opacity, null, null, 0, 1, 0.2, ":hover");

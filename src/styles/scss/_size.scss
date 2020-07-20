@@ -1,0 +1,23 @@
+@import "./utils";
+
+@include to-style-in-all(h-, height , null, 0 5 8 10 15 25 50 75 100 150 500, null, px);
+@include to-style-in-all(w-, width  , null, 0 5 8 10 15 25 50 75 100 150 500, null, px);
+
+@include to-style-by-steps-in-all(h-, height, p, "%", 0, 100, 10);
+@include to-style-by-steps-in-all(w-, width, p, "%", 0, 100, 10);
+
+.h-100vh {
+    height: 100vh;
+}
+
+.w-100vh {
+    width: 100vh;
+}
+
+.h-1 {
+    height: 1px;
+}
+
+.w-1 {
+    width: 1px;
+}

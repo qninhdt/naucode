@@ -1,0 +1,27 @@
+@import "./utils";
+
+$times: 75 100 200 300 500 1000;
+
+@include to-style(dur-, transition-duration, null, $times, "", ms);
+
+.ease {
+    transition-timing-function: ease;
+}
+
+.trans {
+    --scale   : 1;
+    --rotate  : 0;
+    --transX  : 0;
+    --transY  : 0;
+    --transZ  : 0;
+
+    transform: 
+        translateX(var(--transX))
+        translateY(var(--transY))
+        translateZ(var(--transZ))
+        rotate(var(--rotate))
+        scale(var(--scale));
+}
+
+@include to-style-in-all(transX-, --transX, p, -50 50, null, "%");
+@include to-style-in-all(transY-, --transY, p, -50 50, null, "%");

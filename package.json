@@ -1,0 +1,40 @@
+{
+  "name": "naucode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --env.development --open",
+    "build": "webpack --progress --env.production --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-modules": "^3.2.0",
+    "sass": "^1.26.9",
+    "sass-loader": "^9.0.1",
+    "style-loader": "^1.2.1",
+    "svg-inline-loader": "^0.8.2",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.1",
+    "firebase": "^7.16.0",
+    "preact": "^10.4.5",
+    "preact-router": "^3.2.1",
+    "styled-components": "^5.1.1",
+    "unistore": "^3.5.2",
+    "webpack-bundle-analyzer": "^3.8.0"
+  }
+}

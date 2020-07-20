@@ -1,0 +1,105 @@
+@function str-split( $str, $needle, $ret: () ) {
+    $i: str-index($str, $needle);
+    @if $i == null {
+        @return ($str);
+    }
+    @else {
+        $a: str-slice($str, 0, ($i - 1));
+        $oldRet: $ret;
+        @if str-length($a) > 0 {
+            $ret: append($ret, $a);
+        }
+        $newStr: str-slice($str, ($i + 1), str-length($str));
+        @if str-length($newStr) > 0 {
+            $ret: join($ret, str-split($newStr,$needle,$oldRet));
+        }
+    }
+    @return $ret;
+} 
+
+@function str-join($list) {
+    $ret: null;
+    @each $x in $list {
+        $ret: $ret + $x;
+    }
+    @return $ret;
+}
+
+@function to-string($value) {
+    @return inspect($value);
+}
+
+@mixin to-style($prefix, $props, $suffix, $values,  $event: "", $unit: "") {
+    @each $value in $values {
+        .#{$prefix}#{$value}#{$suffix}#{$event} {
+            @each $prop in $props {
+                #{$prop}: #{$value + $unit};
+            }
+        }
+    }
+}
+
+@mixin to-style-with-var($prefix, $props, $suffix, $values, $event: "") {
+    @each $value in $values {
+        .#{$prefix}#{$value}#{$suffix}#{$event} {
+            @each $prop in $props {
+                #{$prop}: var(--#{$value});
+            }
+            
+        }
+    }
+}
+
+@mixin to-style-in-mobile($prefix, $props, $suffix, $values, $event: "", $unit: "") {
+    @media screen and (max-width:600px) {
+        @each $value in $values {
+            .mb\:#{$prefix}#{$value}#{$suffix}#{$event} {
+                @each $prop in $props {
+                    #{$prop}: #{$value + $unit};
+                }
+            }
+        }
+    }
+}
+
+@mixin to-style-by-steps($prefix, $props, $suffix, $unit, $min, $max, $step, $event: "") {
+
+    @while $min <= $max {
+        $to-str: str-join(str-split(to-string($min), '.'));
+
+        .#{$prefix}#{$to-str}#{$suffix}#{$event} {
+            @each $prop in $props {
+                #{$prop}: #{$min+$unit};
+            }
+        }
+
+        $min: $min + $step;
+    }
+}
+
+@mixin to-style-by-steps-in-mobile($prefix, $props, $suffix, $unit, $min, $max, $step, $event: "") {
+    @media screen and (max-width:600px) {
+
+        @while $min <= $max {
+            $to-str: str-join(str-split(to-string($min), '.'));
+
+            .mb\:#{$prefix}#{$to-str}#{$suffix}#{$event} {
+                @each $prop in $props {
+                    #{$prop}: #{$min+$unit};
+                }                
+            }
+                
+            $min: $min + $step;
+        }
+    }
+}
+
+@mixin to-style-in-all($prefix, $name, $suffix, $values, $event: "", $unit: "") {
+    @include to-style($prefix, $name, $suffix, $values, $event, $unit);
+    @include to-style-in-mobile($prefix, $name, $suffix, $values, $event, $unit);
+}
+
+@mixin to-style-by-steps-in-all($prefix, $props, $suffix, $unit, $min, $max, $step, $event: "") {
+    @include to-style-by-steps($prefix, $props, $suffix, $unit, $min, $max, $step, $event);
+    @include to-style-by-steps-in-mobile($prefix, $props, $suffix, $unit, $min, $max, $step, $event);
+}

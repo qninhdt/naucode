@@ -1,0 +1,16 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+}
+
+:root {
+    --c-text: black;
+    --c-line: black;
+    --c-line-1: rgb(85, 85, 85);
+    --c-button: #f1c40f;
+}

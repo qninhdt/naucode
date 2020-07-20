@@ -1,0 +1,6 @@
+@import "./utils";
+
+$border-styles: solid dotted;
+
+@include to-style(bs-, border-style, null, $border-styles);
+@include to-style-by-steps(b-, border-width, null, px, 0, 3, 1);

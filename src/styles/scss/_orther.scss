@@ -1,0 +1,13 @@
+@import "./utils";
+
+.pointer {
+    cursor: pointer;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-select {
+    user-select: none;
+}
