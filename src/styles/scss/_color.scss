@@ -1,6 +1,6 @@
 @import "./utils";
 
-$colors: c-text ;
+$colors: c-text c-text-button;
 $bg-colors: c-line c-bg c-button;
 
 @include to-style-with-var(null, color, null, $colors);
@@ -15,4 +15,10 @@ $bg-colors: c-line c-bg c-button;
 
 .black {
     color: black;
+}
+
+.svg-icon {
+    path {
+        fill: var(--c-text);
+    }
 }

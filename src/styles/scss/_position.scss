@@ -2,7 +2,7 @@
 
 $positions: absolute relative fixed;
 $floats: left right;
-$values: 0 2 5 10 25 35 50 75 100 150;
+$values: 0 2 5 10 15 25 35 50 75 100 150;
 
 // padding/margin in px
 @include to-style-in-all(px-, padding-left padding-right  , null, $values, "", px);
@@ -21,42 +21,21 @@ $values: 0 2 5 10 25 35 50 75 100 150;
 @include to-style-in-all(right-  , right  , null, $values, "", px);
 @include to-style-in-all(bottom- , bottom , null, $values, "", px);
 
-@include to-style-in-all(top-    , top    , p, 50, "", "%");
-@include to-style-in-all(left-   , left   , p, 50, "", "%");
+@include to-style-in-all(top-    , top    , p, 10 50, "", "%");
+@include to-style-in-all(left-   , left   , p, 10 50, "", "%");
 
 @include to-style(null, position, null, $positions);
 @include to-style-in-all(null, float, null, $floats);
 
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
+@include to-style-in-all(ml-, margin-left, null, auto);
 
-.my-auto {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.mx-5 {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.my-5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.my-10p {
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .m-auto {
     margin: auto;
-}
-
-.ml-auto {
-    margin-left: auto;
-}
-
-.mr-auto {
-    margin-right: auto;
 }
 
 .v-middle {
@@ -73,5 +52,8 @@ $values: 0 2 5 10 25 35 50 75 100 150;
 
 .text-center {
     text-align: center;
+}
+
+.v-center {
     vertical-align: center;
 }

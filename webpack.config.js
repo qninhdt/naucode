@@ -8,10 +8,12 @@ module.exports = env => ({
 
     mode: env.development ? "development" : "production",
 
-    entry: "./src/main.tsx",
+    entry: "./src/main.jsx",
 
     devServer: {
         contentBase: './dist',
+        hot: true,
+        historyApiFallback: true,
     },
 
     ...env.development ? { devtool: 'inline-source-map' } : {},
@@ -24,17 +26,19 @@ module.exports = env => ({
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: 'ts-loader',
+                test: /\.js$/,
                 exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader"
+                },
             },
-
             {
-                test: /\.tsx$/,
-                use: 'ts-loader',
+                test: /\.jsx$/,
                 exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader"
+                },
             },
-
             {
                 test: /\.css$/,
                 use: [
@@ -113,7 +117,7 @@ module.exports = env => ({
             "react"     : "preact/compat",
             "react-dom" : "preact/compat"
         },
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: [ '.jsx', '.js' ],
     },
     
     stats: {

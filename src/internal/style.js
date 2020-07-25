@@ -4,7 +4,7 @@ import styles from "@/styles/scss/index.scss"
 const getClassName = s => s in styles ? styles[s] : s
 
 export default function s(..._styles) {
-    let classes: any[] = []
+    let classes = []
 
     _styles.forEach(style => {
         

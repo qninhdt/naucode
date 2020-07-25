@@ -1,16 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-width: 0;
 }
 
 html {
-
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
 :root {
     --c-text: black;
     --c-line: black;
     --c-line-1: rgb(85, 85, 85);
-    --c-button: #f1c40f;
+    --c-button: #ffbc2c;
+    --c-button-1: #ff9f43;
+    --c-text-button: white;
+    --c-button-cl: var(--c-button);
+    --c-button-1-cl: var(--c-button-1);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border-radius: 0;
 }

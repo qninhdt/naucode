@@ -1,7 +1,7 @@
 @import "./utils";
 
-@include to-style-in-all(h-, height , null, 0 5 8 10 15 25 50 75 100 150 500, null, px);
-@include to-style-in-all(w-, width  , null, 0 5 8 10 15 25 50 75 100 150 500, null, px);
+@include to-style-in-all(h-, height , null, 0 1 3 5 8 10 15 20 25 30 50 60 75 100 150 500, null, px);
+@include to-style-in-all(w-, width  , null, 0 1 3 5 8 10 15 20 25 30 50 60 75 100 150 500, null, px);
 
 @include to-style-by-steps-in-all(h-, height, p, "%", 0, 100, 10);
 @include to-style-by-steps-in-all(w-, width, p, "%", 0, 100, 10);
@@ -14,10 +14,6 @@
     width: 100vh;
 }
 
-.h-1 {
-    height: 1px;
-}
-
-.w-1 {
-    width: 1px;
+.fl-1 {
+    flex: 1;
 }

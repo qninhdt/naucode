@@ -23,5 +23,18 @@ $times: 75 100 200 300 500 1000;
         scale(var(--scale));
 }
 
+.rotate-20 {
+    --rotate: 20deg;
+}
+
 @include to-style-in-all(transX-, --transX, p, -50 50, null, "%");
 @include to-style-in-all(transY-, --transY, p, -50 50, null, "%");
+
+.c-button-gradient {
+    background-color: var(--c-button);
+    background-image: 
+        linear-gradient(45deg, var(--c-button-1) 25%, transparent 25%, transparent 75%, var(--c-button-1) 75%, var(--c-button-1)), 
+        linear-gradient(45deg, var(--c-button-1) 25%, transparent 25%, transparent 75%, var(--c-button-1) 75%, var(--c-button-1));
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
